@@ -1,0 +1,43 @@
+<div
+  class="bg-gradient-to-br from-slate-900 via-gray-900 to-black min-h-screen flex items-center justify-center"
+>
+  <div
+    class="bg-white px-10 py-12 rounded-xl shadow-xl w-full max-w-sm space-y-8"
+  >
+    <div class="text-center">
+      <h1 class="text-4xl font-bold text-gray-900">Login</h1>
+      <p class="text-gray-600 mt-2">para começar a manipular seu negócio</p>
+    </div>
+
+    <div
+      class="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 focus-within:ring-2 focus-within:ring-gray-500 transition"
+    >
+      <lucide-icon [img]="userIcon" class="w-5 h-5 text-gray-500"></lucide-icon>
+      <input
+        type="text"
+        placeholder="Usuário"
+        class="w-full outline-none text-gray-800 placeholder-gray-400 bg-transparent"
+        [(ngModel)]="login.login"
+      />
+    </div>
+
+    <div
+      class="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 focus-within:ring-2 focus-within:ring-gray-500 transition"
+    >
+      <lucide-icon [img]="passIcon" class="w-5 h-5 text-gray-500"></lucide-icon>
+      <input
+        type="password"
+        placeholder="Senha"
+        class="w-full outline-none text-gray-800 placeholder-gray-400 bg-transparent"
+        [(ngModel)]="login.password"
+      />
+    </div>
+
+    <button
+      class="w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-3 rounded-lg transition duration-300 transform hover:scale-105"
+      (click)="entrar()"
+    >
+      Entrar
+    </button>
+  </div>
+</div>

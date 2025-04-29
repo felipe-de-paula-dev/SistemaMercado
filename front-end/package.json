@@ -1,0 +1,57 @@
+{
+  "name": "Mercado",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "dependencies": {
+    "@angular/animations": "19.0.3",
+    "@angular/cdk": "19.0.2",
+    "@angular/common": "19.0.3",
+    "@angular/compiler": "19.0.3",
+    "@angular/core": "19.0.3",
+    "@angular/forms": "19.0.3",
+    "@angular/material": "19.0.2",
+    "@angular/platform-browser": "19.0.3",
+    "@angular/platform-browser-dynamic": "19.0.3",
+    "@angular/router": "19.0.3",
+    "@angular/service-worker": "19.0.3",
+    "esbuild": "^0.25.2",
+    "lucide-angular": "^0.483.0",
+    "Mercado": "file:",
+    "meu-projeto-angular": "file:",
+    "rxjs": "~7.8.0",
+    "sweetalert2": "^11.6.13",
+    "zone.js": "0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.2.8",
+    "@angular/cli": "~19.0.0",
+    "@angular/compiler-cli": "19.0.3",
+    "@angular/language-service": "19.0.3",
+    "@tailwindcss/postcss": "^4.1.4",
+    "@types/jasmine": "^5.1.7",
+    "@types/uuid": "^10.0.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "~8.57.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "jasmine-core": "^5.6.0",
+    "karma": "^6.4.4",
+    "karma-jasmine": "^5.1.0",
+    "lmdb": "^3.2.6",
+    "postcss": "^8.5.3",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "5.6.3"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.40.0"
+  }
+}

@@ -1,0 +1,63 @@
+<div
+  class="fixed w-screen h-screen left-0 top-0 bg-black/40 flex items-center justify-center z-50"
+>
+  <div
+    class="bg-white w-full max-w-md mx-4 rounded-2xl shadow-2xl p-6 space-y-6 animate-fade-in"
+  >
+    <div class="flex items-center justify-between text-slate-700">
+      <lucide-icon
+        [img]="VoltarIcon"
+        class="icon w-6 h-6 text-slate-500 hover:text-slate-700 transition cursor-pointer"
+        (click)="fecharModal()"
+      ></lucide-icon>
+      <h2 class="text-xl font-semibold">Editar Cliente</h2>
+      <lucide-icon
+        [img]="FecharIcon"
+        class="icon w-6 h-6 text-slate-500 hover:text-red-500 transition cursor-pointer"
+        (click)="fecharModal()"
+      ></lucide-icon>
+    </div>
+
+    <div class="space-y-4">
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-sky-500"
+      >
+        <lucide-icon
+          [img]="UserIcon"
+          class="icon text-slate-400 w-5 h-5"
+        ></lucide-icon>
+        <input
+          type="text"
+          placeholder="Nome completo"
+          class="flex-1 bg-transparent outline-none text-slate-700"
+          [(ngModel)]="cliente.nome"
+        />
+      </div>
+
+      <div
+        class="flex items-center gap-3 border border-slate-300 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-sky-500"
+      >
+        <lucide-icon
+          [img]="CardIcon"
+          class="icon text-slate-400 w-5 h-5"
+        ></lucide-icon>
+        <input
+          type="text"
+          placeholder="CPF ou CNPJ"
+          class="flex-1 bg-transparent outline-none text-slate-700"
+          maxlength="14"
+          [(ngModel)]="cliente.documento"
+        />
+      </div>
+    </div>
+
+    <div class="pt-2">
+      <button
+        class="w-full bg-green-600 hover:bg-green-700 text-white py-2.5 rounded-lg font-medium transition-colors"
+        (click)="Editar()"
+      >
+        Salvar Cliente
+      </button>
+    </div>
+  </div>
+</div>
