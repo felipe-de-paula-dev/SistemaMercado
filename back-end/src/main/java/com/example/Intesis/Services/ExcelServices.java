@@ -102,6 +102,8 @@ public class ExcelServices {
                 nomeCell.setCellValue(venda.getCliente().getNome());
                 nomeCell.setCellStyle(style);
 
+                sheet.autoSizeColumn(1);
+
                 Cell dataCell = row.createCell(2);
                 dataCell.setCellValue(venda.getData());
                 dataCell.setCellStyle(dateStyle);
@@ -149,7 +151,7 @@ public class ExcelServices {
                     subtotalCell.setCellStyle(priceStyle);
                 }
 
-                // Adicionando a divisória (linha em branco)
+                // Adicionando a divisória
                 Row divisoriaRow = sheet.createRow(rowId++);
                 divisoriaRow.createCell(0).setCellStyle(bgStyle);
                 divisoriaRow.createCell(1).setCellStyle(bgStyle);
@@ -157,12 +159,10 @@ public class ExcelServices {
                 divisoriaRow.createCell(3).setCellStyle(bgStyle);
             }
 
-            // Auto-dimensionando as colunas
             for (int i = 0; i <= 3; i++) {
                 sheet.autoSizeColumn(i);
             }
 
-            // Escrevendo no ByteArrayOutputStream e retornando
             workbook.write(out);
             return new ByteArrayInputStream(out.toByteArray());
         }
@@ -287,7 +287,7 @@ public class ExcelServices {
 
                     Cell dataCellItem = itemVenda.createCell(2);
                     dataCellItem.setCellValue(item.getData());
-                    dataCellItem.setCellStyle(style);
+                    dataCellItem.setCellStyle(dateStyle);
 
                     Cell subtotalCell = itemVenda.createCell(3);
                     subtotalCell.setCellValue(item.getSubtotal());
