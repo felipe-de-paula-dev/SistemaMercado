@@ -216,7 +216,6 @@ public class ExcelServices {
 
             int rowId = 0;
 
-            // Cabeçalho das vendas
 
 
             // Preenchendo as vendas
