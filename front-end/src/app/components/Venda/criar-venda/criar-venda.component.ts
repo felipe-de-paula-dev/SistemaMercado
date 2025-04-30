@@ -16,10 +16,10 @@ import {
   Banknote,
   CreditCard,
   Smartphone,
+  Loader2,
 } from 'lucide-angular';
 import { ProdutoService } from '../../../services/produto/produto.service';
 import { ClienteService } from '../../../services/cliente/cliente.service';
-import { ItemVenda } from '../../../models/itemvenda/itemVenda.model';
 import { Produto } from '../../../models/produto/produto.model';
 import { ItemVendaDTO } from '../../../models/itemvenda/itemVendaDTO.model';
 import { VendaDTO } from '../../../models/venda/vendaDTO.model';
@@ -46,6 +46,7 @@ export class CriarVendaComponent {
   readonly MoneyIcon = Banknote;
   readonly CardCredit = CreditCard;
   readonly PhoneIcon = Smartphone;
+  readonly LoadIcon = Loader2;
 
   constructor(
     private vendaService: VendaService,
@@ -82,6 +83,12 @@ export class CriarVendaComponent {
     itensvenda: this.itens,
   };
 
+  //
+
+  desabilitar = false;
+
+  //
+
   getClientes() {
     this.clienteService.getClientes().subscribe((data: any) => {
       this.Cliente = data;
@@ -102,15 +109,18 @@ export class CriarVendaComponent {
       return;
     }
 
+    this.desabilitar = true;
     this.vendaService.postVendas(this.venda).subscribe({
       next: (res) => {
         this.swalService.success('Venda Salva!', res);
         this.fecharModal();
         this.atualizar.emit();
         this.exibirTroco = false;
+        this.desabilitar = false;
       },
       error: (err) => {
         this.swalService.error('Erro!', err);
+        this.desabilitar = false;
       },
     });
   }

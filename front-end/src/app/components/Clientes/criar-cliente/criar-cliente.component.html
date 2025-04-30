@@ -53,11 +53,16 @@
 
     <div class="pt-2">
       <button
-        class="w-full bg-green-600 hover:bg-green-700 text-white py-2.5 rounded-lg font-medium transition-colors"
+        class="w-full bg-green-600 hover:bg-green-700 text-white py-2.5 rounded-lg font-medium transition-colors flex items-center flex-col"
         (click)="salvar()"
         [disabled]="salvando"
       >
-        Salvar Cliente
+        <lucide-icon
+          [img]="LoaderIcon"
+          class="icon text-white w-6 h-6 load"
+          *ngIf="salvando"
+        ></lucide-icon>
+        <p *ngIf="!salvando">Salvar Cliente</p>
       </button>
     </div>
   </div>

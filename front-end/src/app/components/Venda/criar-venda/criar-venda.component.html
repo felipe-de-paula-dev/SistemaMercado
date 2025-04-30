@@ -248,9 +248,15 @@
       <button
         *ngIf="troco !== null"
         (click)="enviarVenda()"
+        [disabled]="desabilitar"
         class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl px-4 py-2 transition duration-200 shadow-md"
       >
-        Concluir Venda
+        <lucide-icon
+          [img]="LoadIcon"
+          class="icon text-white w-6 h-6 load"
+          *ngIf="desabilitar"
+        ></lucide-icon>
+        <p *ngIf="!desabilitar">Concluir Venda</p>
       </button>
     </div>
   </div>

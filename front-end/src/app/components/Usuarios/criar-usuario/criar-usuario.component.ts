@@ -13,11 +13,12 @@ import {
 import { UserService } from '../../../services/user/user.service';
 import { SwalService } from '../../../services/swal/swal-service.service';
 import { User } from '../../../models/user/user.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-criar-usuario',
   standalone: true,
-  imports: [LucideAngularModule, FormsModule],
+  imports: [LucideAngularModule, FormsModule, CommonModule],
   templateUrl: './criar-usuario.component.html',
   styleUrl: './criar-usuario.component.css',
 })
@@ -29,6 +30,7 @@ export class CriarUsuarioComponent {
   readonly LoaderIcon = Loader2;
   readonly LockIcon = LockIcon;
   readonly CargoIcon = Briefcase;
+  readonly LoadIcon = Loader2;
 
   @Output() fechar = new EventEmitter<void>();
   @Output() atualizar = new EventEmitter<void>();
@@ -41,6 +43,10 @@ export class CriarUsuarioComponent {
   fecharModal() {
     this.fechar.emit();
   }
+
+  //
+
+  desabilitar = false;
 
   //
 
@@ -62,14 +68,18 @@ export class CriarUsuarioComponent {
       return;
     }
 
+    this.desabilitar = true;
+
     this.userService.postUsers(this.user).subscribe({
       next: (res) => {
         this.swalService.success('Usuario Adicionado!', res);
         this.fecharModal();
         this.atualizar.emit();
+        this.desabilitar = false;
       },
       error: (err) => {
         this.swalService.error('Erro!', err.error);
+        this.desabilitar = false;
       },
     });
   }

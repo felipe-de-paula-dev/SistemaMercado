@@ -53,10 +53,16 @@
 
     <div class="pt-2">
       <button
-        class="w-full bg-green-600 hover:bg-green-700 text-white py-2.5 rounded-lg font-medium transition-colors"
+        class="w-full bg-green-600 hover:bg-green-700 text-white py-2.5 rounded-lg font-medium transition-colors flex items-center flex-col"
+        [disabled]="desabilitar"
         (click)="adicionarProduto()"
       >
-        Salvar Produto
+        <lucide-icon
+          [img]="LoadIcon"
+          class="icon text-white w-6 h-6 load"
+          *ngIf="desabilitar"
+        ></lucide-icon>
+        <p *ngIf="!desabilitar">Salvar Produto</p>
       </button>
     </div>
   </div>

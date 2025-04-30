@@ -99,10 +99,8 @@ public class ExcelServices {
                 idCell.setCellStyle(style);
 
                 Cell nomeCell = row.createCell(1);
-                nomeCell.setCellValue(venda.getCliente().getNome());
+                nomeCell.setCellValue(" " + venda.getCliente().getNome() + " ");
                 nomeCell.setCellStyle(style);
-
-                sheet.autoSizeColumn(1);
 
                 Cell dataCell = row.createCell(2);
                 dataCell.setCellValue(venda.getData());
@@ -244,7 +242,7 @@ public class ExcelServices {
                 idCell.setCellStyle(style);
 
                 Cell clienteCell = row.createCell(1);
-                clienteCell.setCellValue(venda.getCliente().getNome());
+                clienteCell.setCellValue(" " + venda.getCliente().getNome() + " ");
                 clienteCell.setCellStyle(dateStyle);
 
                 Cell dataCell = row.createCell(2);

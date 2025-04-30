@@ -12,10 +12,11 @@ import { ClienteService } from '../../../services/cliente/cliente.service';
 import Swal from 'sweetalert2';
 import { SwalService } from '../../../services/swal/swal-service.service';
 import { Cliente } from '../../../models/cliente/cliente.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-criar-cliente',
-  imports: [LucideAngularModule, FormsModule],
+  imports: [LucideAngularModule, FormsModule, CommonModule],
   templateUrl: './criar-cliente.component.html',
   styleUrl: './criar-cliente.component.css',
 })

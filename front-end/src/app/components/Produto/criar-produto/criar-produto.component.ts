@@ -9,14 +9,16 @@ import {
   IdCard,
   Hash,
   DollarSign,
+  Loader2,
 } from 'lucide-angular';
 import { ProdutoService } from '../../../services/produto/produto.service';
 import { SwalService } from '../../../services/swal/swal-service.service';
 import { Produto } from '../../../models/produto/produto.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-criar-produto',
-  imports: [LucideAngularModule, FormsModule],
+  imports: [LucideAngularModule, FormsModule, CommonModule],
   templateUrl: './criar-produto.component.html',
   styleUrl: './criar-produto.component.css',
 })
@@ -25,11 +27,14 @@ export class CriarProdutoComponent {
   readonly FecharIcon = X;
   readonly HashIcon = Hash;
   readonly ValorIcon = DollarSign;
+  readonly LoadIcon = Loader2;
 
   produto: Produto = {
     nome: '',
     preco: 0,
   };
+
+  desabilitar = false;
 
   @Output() fechar = new EventEmitter<void>();
   @Output() atualizar = new EventEmitter<void>();
@@ -46,14 +51,18 @@ export class CriarProdutoComponent {
       return;
     }
 
+    this.desabilitar = true;
+
     this.produtoService.postProduto(this.produto).subscribe({
       next: (res) => {
         this.swalService.success('Produto Adicionado', res);
         this.fecharModal();
         this.atualizar.emit();
+        this.desabilitar = false;
       },
       error: (err) => {
         this.swalService.error('Produto Não Adicionado', err.error);
+        this.desabilitar = false;
       },
     });
   }
