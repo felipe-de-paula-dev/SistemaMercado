@@ -51,12 +51,16 @@ cd sistema-vendas
 
 ### 2. Rodar Docker FrontEnd
 
+```bash
 - cd front-end
 - docker build -t nome-da-imagem .
 - docker run -p 80:4200 nome-da-imagem
+```
 
 ### 2. Rodar Docker BackEnd
 
+```bash
 - cd back-end
 - docker build -t nome-da-imagem .
 - docker run -p 8080:8080 nome-da-imagem
+```
