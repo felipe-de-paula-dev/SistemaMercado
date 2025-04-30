@@ -70,7 +70,7 @@ Observação: Este projeto utiliza o banco de dados Neon (PostgreSQL na nuvem). 
 - docker run -p 80:4200 nome-da-imagem
 ```
 
-### 2. Rodar Docker BackEnd
+### 4. Rodar Docker BackEnd
 
 ```bash
 - cd back-end
