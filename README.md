@@ -51,21 +51,24 @@ cd sistema-vendas
 
 ### 2. Conecte o projeto ao banco de dados
 
+Vá Até O Diretório
+
 ```bash
-- cd back-end/
-- docker build -t nome-da-imagem .
-- docker run -p 8080:8080 nome-da-imagem
+cd back-end/src/main/resources
 ```
 
-````
+Abra o application.properties
+Conecte seu db mudando o `spring.datasource.url=`seuDB`
 
-### 2. Rodar Docker FrontEnd
+Observação: Este projeto utiliza o banco de dados Neon (PostgreSQL na nuvem). Portanto, você pode usar apenas a URL fornecida pelo Neon como spring.datasource.url, e completar com seu usuário e senha, se necessário.
+
+### 3. Rodar Docker FrontEnd
 
 ```bash
 - cd front-end
 - docker build -t nome-da-imagem .
 - docker run -p 80:4200 nome-da-imagem
-````
+```
 
 ### 2. Rodar Docker BackEnd
 
