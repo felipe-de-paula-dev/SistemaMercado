@@ -57,8 +57,8 @@ Vá Até O Diretório
 cd back-end/src/main/resources
 ```
 
-Abra o application.properties
-Conecte seu db mudando o `spring.datasource.url=`seuDB`
+Abra o application.properties e
+conecte seu db mudando o `spring.datasource.url=`**seuDb**
 
 Observação: Este projeto utiliza o banco de dados Neon (PostgreSQL na nuvem). Portanto, você pode usar apenas a URL fornecida pelo Neon como spring.datasource.url, e completar com seu usuário e senha, se necessário.
 
