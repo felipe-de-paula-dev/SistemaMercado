@@ -47,6 +47,9 @@ export class CriarClienteComponent {
   }
 
   salvar() {
+    
+    this.cliente.documento = this.cliente.documento.replace(/[./-]/g, "");
+
     this.salvando = true;
 
     const error = this.clienteService.validarCliente(this.cliente);
@@ -55,6 +58,7 @@ export class CriarClienteComponent {
       this.salvando = false;
       return;
     }
+
 
     this.clienteService.postClientes(this.cliente).subscribe({
       next: (response) => {
@@ -65,7 +69,6 @@ export class CriarClienteComponent {
       },
       error: (error) => {
         this.swalService.error('Ocorreu Um Erro', error.error);
-        this.fecharModal();
         this.salvando = false;
       },
     });

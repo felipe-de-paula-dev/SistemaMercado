@@ -46,7 +46,6 @@ Este projeto é uma aplicação web completa (backend + frontend) desenvolvida p
 
 ```bash
 git clone https://github.com/felipe-de-paula-dev/sistemamercado
-cd sistema-vendas
 ```
 
 ### 2. Conecte o projeto ao banco de dados

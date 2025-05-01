@@ -48,6 +48,8 @@ export class AtualizarClienteComponent {
   };
 
   async Editar() {
+    this.cliente.documento = this.cliente.documento.replace(/[./-]/g, "");
+
     const clienteEditado = {
       idcliente: this.ClienteRecebido.idcliente,
       nome: this.cliente.nome || this.ClienteRecebido.nome,
