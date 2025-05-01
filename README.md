@@ -45,13 +45,13 @@ Este projeto é uma aplicação web completa (backend + frontend) desenvolvida p
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/sistema-vendas.git
+git clone https://github.com/felipe-de-paula-dev/sistemamercado
 cd sistema-vendas
 ```
 
 ### 2. Conecte o projeto ao banco de dados
 
-Vá Até O Diretório
+Vá Até o Diretório
 
 ```bash
 cd back-end/src/main/resources
