@@ -54,6 +54,8 @@ public class AuthenticationController {
                 return ResponseEntity.badRequest().build();
             }
 
+            if(Dto.role() == null) return ResponseEntity.status(404).body("Cargo Não Adicionado");
+
             String senhaCripto = new BCryptPasswordEncoder().encode(Dto.password());
 
             User newUser = new User(Dto.login(), senhaCripto, Dto.role());
