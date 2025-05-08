@@ -198,6 +198,13 @@ export class CriarVendaComponent {
   }
 
   calcularTroco() {
+    if (this.valorRecebido < this.totalVenda) {
+      this.swalService.error(
+        'Erro!',
+        'O Valor recebido é menor que o total da venda!',
+      );
+      return;
+    }
     this.troco = this.vendaService.calcularTroco(
       this.totalVenda,
       this.valorRecebido,
