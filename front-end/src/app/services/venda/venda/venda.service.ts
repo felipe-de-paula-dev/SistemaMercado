@@ -6,6 +6,7 @@ import { VendaDTO } from '../../../models/venda/vendaDTO.model';
 import { VendaUpdateDTO } from '../../../models/venda/venda.update.dto';
 import { ItemVendaDTO } from '../../../models/itemvenda/itemVendaDTO.model';
 import { ItemVenda } from '../../../models/itemvenda/itemVenda.model';
+import { apiUrl } from '../../api/api';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ import { ItemVenda } from '../../../models/itemvenda/itemVenda.model';
 export class VendaService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = 'https://backendmercado.onrender.com/api/venda';
+  private apiUrl = `${apiUrl}/api/venda`;
 
   token = sessionStorage.getItem('token');
 

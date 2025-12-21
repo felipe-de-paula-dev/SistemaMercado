@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { apiUrl } from '../api/api';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 export class TokenService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = 'https://backendmercado.onrender.com/auth/token';
+  private apiUrl = `${apiUrl}/auth/token`;
 
   token = sessionStorage.getItem('token');
 

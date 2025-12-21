@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { apiUrl } from '../api/api';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 export class ExportService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = 'https://backendmercado.onrender.com/excel';
+  private apiUrl = `${apiUrl}/excel`;
 
   token = sessionStorage.getItem('token');
 

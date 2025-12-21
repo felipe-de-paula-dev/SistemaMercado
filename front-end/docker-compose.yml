@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mercado-front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://seu-ip-da-vps:3001
+    container_name: mercado_frontend
+    restart: always
+    ports:
+      - "80:80" 
+    networks:
+      - frontend-net
+
+networks:
+  frontend-net:
+    driver: bridge

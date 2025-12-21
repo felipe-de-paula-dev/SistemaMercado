@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ItemVenda } from '../../../models/itemvenda/itemVenda.model';
+import { apiUrl } from '../../api/api';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { ItemVenda } from '../../../models/itemvenda/itemVenda.model';
 export class ItemVendaService {
   constructor(private http: HttpClient) {}
 
-  private apiUrl = 'https://backendmercado.onrender.com/api/item';
+  private apiUrl = `${apiUrl}/api/item`;
 
   token = sessionStorage.getItem('token');
 

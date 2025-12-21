@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../../models/user/user.model';
 import { Observable } from 'rxjs';
+import { apiUrl } from '../api/api';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class UserService {
 
   token = sessionStorage.getItem('token');
 
-  private apiUrl = 'https://backendmercado.onrender.com/';
+  private apiUrl = `${apiUrl}/`;
 
   getUsersByName(name: string): Observable<User[]> {
     const headers = new HttpHeaders({
