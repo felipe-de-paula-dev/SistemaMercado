@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  mercado-db:
+      image: postgres:15-alpine
+      container_name: mercado_db
+      restart: always
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=2007
+        - POSTGRES_DB=mercado_db
+      ports:
+        - "5434:5432"
+      volumes:
+        - mercado_data:/var/lib/postgresql/data
+      networks:
+      - web_network
+  mercado-backend:
+    build: .
+    container_name: mercado_backend
+    restart: always
+    ports:
+      - "8081:8081" 
+    environment:
+      - DB_URL=jdbc:postgresql://mercado-db:5432/mercado_db
+      - DB_USER=postgres
+      - DB_PASSWORD=2007
+      - NODE_ENV=production
+    depends_on:
+      - mercado-db
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - web_network
+
+volumes:
+  mercado_data:
+
+networks:
+  web_network:
+    external: true
+

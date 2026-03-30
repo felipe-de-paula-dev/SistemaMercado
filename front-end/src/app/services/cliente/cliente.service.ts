@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cliente } from '../../models/cliente/cliente.model';
+import { apiUrl } from '../api/api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClienteService {
-  private apiUrl = 'https://backendmercado.onrender.com/api/cliente';
+  private apiUrl = `${apiUrl}/api/cliente`;
 
   token = sessionStorage.getItem('token');
 
