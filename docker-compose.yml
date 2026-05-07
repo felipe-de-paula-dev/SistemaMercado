@@ -23,7 +23,7 @@ services:
 
   mercado-backend:
     build:
-      context: .\back-end
+      context: ./back-end
       dockerfile: Dockerfile
     container_name: mercado_backend
     restart: always
@@ -41,7 +41,7 @@ services:
 
   mercado-front:
     build:
-      context: .\front-end
+      context: ./front-end
       dockerfile: Dockerfile
     container_name: mercado_frontend
     restart: always
