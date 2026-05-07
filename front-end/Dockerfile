@@ -13,4 +13,4 @@ RUN npm run build
 EXPOSE 4200
 
 RUN npm install -g serve
-CMD ["serve", "-s", "dist/Mercado/browser", "-l", "4200"]
+CMD ["serve", "-s", "dist/Mercado", "-l", "4200"]

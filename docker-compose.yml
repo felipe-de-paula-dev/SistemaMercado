@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   mercado-db:
@@ -10,7 +10,7 @@ services:
       - POSTGRES_PASSWORD=2007
       - POSTGRES_DB=mercado_db
     ports:
-      - "5434:5432"
+      - "5435:5432"
     volumes:
       - mercado_data:/var/lib/postgresql/data
     healthcheck:
@@ -19,13 +19,16 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - web_network
+      - mercado_network
+
   mercado-backend:
-    build: .
+    build:
+      context: .\back-end
+      dockerfile: Dockerfile
     container_name: mercado_backend
     restart: always
     ports:
-      - "8081:8081" 
+      - "9090:8081"
     environment:
       - DB_URL=jdbc:postgresql://mercado-db:5432/mercado_db
       - DB_USER=postgres
@@ -34,12 +37,24 @@ services:
       mercado-db:
         condition: service_healthy
     networks:
-      - web_network
+      - mercado_network
+
+  mercado-front:
+    build:
+      context: .\front-end
+      dockerfile: Dockerfile
+    container_name: mercado_frontend
+    restart: always
+    ports:
+      - "9091:4200"
+    depends_on:
+      - mercado-backend
+    networks:
+      - mercado_network
 
 volumes:
   mercado_data:
 
 networks:
-  web_network:
+  mercado_network:
     driver: bridge
-

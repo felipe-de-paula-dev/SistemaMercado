@@ -1,3 +1,1 @@
-declare var process: any;
-
-export const apiUrl = process.env["API_URL"];
+export const apiUrl = `${window.location.protocol}//${window.location.hostname}:9090`;
